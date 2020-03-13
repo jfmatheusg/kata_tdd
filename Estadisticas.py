@@ -12,9 +12,6 @@ class Estadisticas:
                 tam += 1
                 if num < minimo:
                     minimo = num;
-            if tam > 2:
-                return tam
-            else:
-                return tam, int(minimo)
+            return tam, int(minimo)
         else:
             return 1,int(cadena)
