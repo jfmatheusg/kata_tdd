@@ -1,3 +1,5 @@
+
 class Estadisticas:
-    def maximo(cadena):
-        pass
+
+    def getEstadisticas(cadena):
+        return 0;
