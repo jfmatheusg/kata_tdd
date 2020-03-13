@@ -17,9 +17,6 @@ class Estadisticas:
                     min = num
                 if num > max:
                     max = num
-            if tam > 3:
-                return tam, int(min), int(max)
-            else:
-                return tam, int(min), int(max), suma / tam
+            return tam, int(min), int(max), suma / tam
         else:
             return 1, int(cadena), int(cadena), int(cadena)
