@@ -13,4 +13,4 @@ class EstadisticasTest(TestCase):
         self.assertEqual(Estadisticas.getEstadisticas("6,4"), (2, 4, 6, 5), "Cadena dos elementos")
 
     def test_cadenadeNElementos(self):
-        self.assertEqual(Estadisticas.getEstadisticas("3,2,8,5"), (4, 2, 8), "Cadena de 4 elementos (n)")
+        self.assertEqual(Estadisticas.getEstadisticas("3,1,7,5"), (4, 1, 7, 4), "Cadena de 4 elementos (n)")
