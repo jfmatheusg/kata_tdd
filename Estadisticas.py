@@ -3,15 +3,15 @@ class Estadisticas:
 
     def getEstadisticas(cadena):
         if cadena == "":
-            return (0, 0)
+            return 0, 0, 0
         elif "," in cadena:
-            numeros = cadena.split(",")
+            num = cadena.split(",")
             tam = 0
-            minimo = numeros[0]
-            for num in numeros:
+            min = num[0]
+            for num in num:
                 tam += 1
-                if num < minimo:
-                    minimo = num;
-            return tam, int(minimo)
+                if num < min:
+                    min = num;
+            return tam, int(min)
         else:
             return 1,int(cadena)
