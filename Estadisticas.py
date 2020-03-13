@@ -11,4 +11,4 @@ class Estadisticas:
                 suma += 1
             return suma
         else:
-            return 1
+            return (1,int(cadena))
