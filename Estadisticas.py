@@ -3,7 +3,7 @@ class Estadisticas:
 
     def getEstadisticas(cadena):
         if cadena == "":
-            return 0, 0, 0
+            return 0, 0, 0, 0
         elif "," in cadena:
             num = cadena.split(",")
             tam = 0
