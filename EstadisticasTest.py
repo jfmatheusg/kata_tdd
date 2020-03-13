@@ -7,7 +7,7 @@ class EstadisticasTest(TestCase):
         self.assertEqual(Estadisticas.getEstadisticas(""), (0,0), "Cadena vacia")
 
     def test_cadenadeUnElemento(self):
-        self.assertEqual(Estadisticas.getEstadisticas("1"), 1, "Cadena un elemento")
+        self.assertEqual(Estadisticas.getEstadisticas("1"), (1,1), "Cadena un elemento")
 
     def test_cadenadeDosElementos(self):
         self.assertEqual(Estadisticas.getEstadisticas("3,2"), 2, "Cadena dos elementos")
