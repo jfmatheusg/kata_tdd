@@ -6,9 +6,15 @@ class Estadisticas:
             return (0, 0)
         elif "," in cadena:
             numeros = cadena.split(",")
-            suma = 0
+            tam = 0
+            minimo = numeros[0]
             for num in numeros:
-                suma += 1
-            return suma
+                tam += 1
+                if num < minimo:
+                    minimo = num;
+            if tam > 2:
+                return tam
+            else:
+                return tam, int(minimo)
         else:
-            return (1,int(cadena))
+            return 1,int(cadena)
