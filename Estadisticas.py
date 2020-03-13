@@ -17,4 +17,4 @@ class Estadisticas:
                     max = num
             return tam, int(min), int(max)
         else:
-            return 1, int(cadena), int(cadena)
+            return 1, int(cadena), int(cadena), int(cadena)
