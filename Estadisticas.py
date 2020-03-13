@@ -14,4 +14,4 @@ class Estadisticas:
                     min = num;
             return tam, int(min)
         else:
-            return 1,int(cadena)
+            return 1, int(cadena), int(cadena)
