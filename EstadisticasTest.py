@@ -8,3 +8,6 @@ class EstadisticasTest(TestCase):
 
     def test_cadenadeunElemento(self):
         self.assertEqual(Estadisticas.getEstadisticas("1"), 1, "Cadena un elemento")
+
+    def test_cadenadedosElementos(self):
+        self.assertEqual(Estadisticas.getEstadisticas("3,2"), 2, "Cadena dos elementos")
