@@ -52,3 +52,26 @@ def userAuth(request):
             message = 'Nombre de usuario o contraseña incorrectos'
 
     return JsonResponse({"message": message})
+
+
+@csrf_exempt
+def editUser(request):
+    if request.method == 'POST':
+        jsonUser = json.loads(request.body)
+        userDB = CustomUser.objects.filter(username=jsonUser['username'])
+        changelist = ""
+        n = 0
+        for jsonName in jsonUser:
+            print(len(jsonUser))
+            n += 1
+            if getattr(userDB[0], jsonName) != jsonUser[jsonName]:
+                setattr(userDB[0], jsonName, jsonUser[jsonName])
+                if n < len(jsonUser):
+                    changelist = changelist + "\"" + jsonName + "\"" + ": " + "\"" + jsonUser[jsonName] + "\"" + ","
+                else:
+                    changelist = changelist + "\"" + jsonName + "\"" + ": " + "\"" + jsonUser[jsonName] + "\""
+        userDB.update()
+
+    changelist = "{" + changelist + "}"
+    print(changelist)
+    return HttpResponse(changelist)

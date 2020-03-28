@@ -62,7 +62,7 @@ class PortafolioTestCase(TestCase):
             {"username": "testUser", "first_name": "Test1", "last_name": "User1",
              "email": "test1@test.com", "professional_profile": "ingeniero"}), content_type='application/json')
         current_data = json.loads(response.content)
-        self.assertEqual(current_data[0]['fields']['first_name'], 'Test1')
-        self.assertEqual(current_data[0]['fields']['last_name'], 'User1')
-        self.assertEqual(current_data[0]['fields']['email'], 'test1@test.com')
-        self.assertEqual(current_data[0]['fields']['professional_profile'], 'ingeniero')
+        self.assertEqual(current_data['first_name'], 'Test1')
+        self.assertEqual(current_data['last_name'], 'User1')
+        self.assertEqual(current_data['email'], 'test1@test.com')
+        self.assertEqual(current_data['professional_profile'], 'ingeniero')
