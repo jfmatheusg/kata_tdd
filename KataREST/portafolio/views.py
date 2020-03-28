@@ -1,10 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
 from .models import Image, Portafolio, CustomUser
 import json
-
+from django.contrib.auth import login, authenticate, logout
 # Create your views here.
 
 @csrf_exempt
@@ -36,3 +36,19 @@ def addUser(request):
         user_model.professional_profile = professional_profile
         user_model.save()
     return HttpResponse(serializers.serialize("json", [user_model]))
+
+
+@csrf_exempt
+def userAuth(request):
+    if request.method == 'POST':
+        jsonUser = json.loads(request.body)
+        username = jsonUser['username']
+        password = jsonUser['password']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
+            message = "ok"
+        else:
+            message = 'Nombre de usuario o contraseña incorrectos'
+
+    return JsonResponse({"message": message})

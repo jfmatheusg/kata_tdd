@@ -47,9 +47,9 @@ class PortafolioTestCase(TestCase):
         self.assertEqual(len(current_data), 1)
 
     def test_user_auth(self):
-        CustomUser.objects.create_user(username='test', password='AnyPas#5', first_name='test name',
+        CustomUser.objects.create_user(username='testUser', password='AnyPas#5', first_name='test name',
                                                     last_name='test last name', email='test@test.com')
-        url = "/userAuth/"
+        url = "/portafolio/userAuth/"
         response = self.client.post(url, json.dumps(
             {"username": "testUser", "password": "AnyPas#5"}), content_type='application/json')
         self.assertEqual(response.status_code, 200)
