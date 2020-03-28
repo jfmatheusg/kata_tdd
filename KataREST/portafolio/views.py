@@ -10,5 +10,5 @@ import json
 
 @csrf_exempt
 def index(request):
-    portfolio_list = []
+    portfolio_list = Portafolio.objects.all()
     return HttpResponse(serializers.serialize("json", portfolio_list))

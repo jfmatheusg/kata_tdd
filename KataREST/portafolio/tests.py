@@ -20,8 +20,8 @@ class PortafolioTestCase(TestCase):
         Portafolio.objects.create(name='nuevo', description='testImage', image=image, user=user_model)
         Portafolio.objects.create(name='nuevo2', description='testImage', image=image, user=user_model)
 
-        url = '/portfolio/'
+        url = '/portafolio/'
         response = self.client.get(url, format='json')
         current_data = json.loads(response.content)
         print(current_data)
-        self.assertEqual(len(current_data), 3)
+        self.assertEqual(len(current_data), 2)
