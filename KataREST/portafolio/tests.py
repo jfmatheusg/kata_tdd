@@ -5,6 +5,11 @@ from django.test import TestCase, Client
 from .models import Image
 import json
 
+
 # Create your tests here.
-class GalleryTestCase(TestCase):
+class PortafolioTestCase(TestCase):
+    def test_portafolio_list(self):
+        url = '/portfolio/'
+        response = self.client.get(url, format='json')
+        self.assertEqual(response.status_code, 200)
 
