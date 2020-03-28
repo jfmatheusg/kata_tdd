@@ -11,7 +11,7 @@ import json
 def index(request):
     username = request.GET.get('username')
     private = request.GET.get('private')
-    if(username == ""):
+    if(username == None or ""):
         portafolio_list = Portafolio.objects.all()
     else:
         portafolio_list = Portafolio.objects.filter(user__username=username).filter(private=private)
