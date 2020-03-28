@@ -11,3 +11,24 @@ import json
 def index(request):
     portfolio_list = Portafolio.objects.all()
     return HttpResponse(serializers.serialize("json", portfolio_list))
+
+
+@csrf_exempt
+def addUser(request):
+    if request.method == 'POST':
+        json_user = json.loads(request.body)
+        username = json_user['username']
+        first_name = json_user['first_name']
+        last_name = json_user['last_name']
+        password = json_user['password']
+        email = json_user['email']
+        professional_profile = json_user['professional_profile']
+        user_model = CustomUser.objects.create_user(username=username, password=password)
+        user_model.first_name = first_name
+        user_model.last_name = last_name
+        user_model.email = email
+        user_model.professional_profile = professional_profile
+        user_model.save()
+    return HttpResponse(serializers.serialize("json", [user_model]))
+
+
