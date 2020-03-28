@@ -9,7 +9,8 @@ import json
 # Create your tests here.
 class PortafolioTestCase(TestCase):
     def test_portafolio_list(self):
-        url = '/portfolio/'
+        url = '/portafolio/'
         response = self.client.get(url, format='json')
         self.assertEqual(response.status_code, 200)
+
 
