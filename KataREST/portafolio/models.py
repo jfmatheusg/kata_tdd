@@ -10,7 +10,7 @@ class Image(models.Model):
     type = models.CharField(max_length=5, blank=True)
 
 
-class Portfolio(models.Model):
+class Portafolio(models.Model):
     name = models.CharField(max_length=200)
     description = models.CharField(max_length=1000, null=True)
     image = models.ForeignKey(Image, null=True, on_delete=models.PROTECT)
