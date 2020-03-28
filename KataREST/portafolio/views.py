@@ -9,8 +9,14 @@ import json
 
 @csrf_exempt
 def index(request):
-    portfolio_list = Portafolio.objects.all()
-    return HttpResponse(serializers.serialize("json", portfolio_list))
+    username = request.GET.get('username')
+    private = request.GET.get('private')
+    if(username == ""):
+        portafolio_list = Portafolio.objects.all()
+    else:
+        portafolio_list = Portafolio.objects.filter(user__username=username).filter(private=private)
+
+    return HttpResponse(serializers.serialize("json", portafolio_list))
 
 
 @csrf_exempt
@@ -30,5 +36,3 @@ def addUser(request):
         user_model.professional_profile = professional_profile
         user_model.save()
     return HttpResponse(serializers.serialize("json", [user_model]))
-
-
